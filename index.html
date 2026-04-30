@@ -8,9 +8,9 @@
     <meta property="og:title" content="provabl — SRE compliance infrastructure">
     <meta property="og:description" content="Ground your infrastructure, attest your controls, qualify your people.">
     <meta property="og:url" content="https://provabl.dev">
-    <meta name="theme-color" content="#080c17">
-    <!-- Anti-FOUC -->
-    <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}());</script>
+    <meta name="theme-color" content="#f8fafc">
+    <!-- Anti-FOUC: default light, respect saved preference -->
+    <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}());</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
@@ -23,16 +23,16 @@
     <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="/" class="nav-brand" aria-label="provabl home">
-                <span class="nav-wordmark">pro<span>vabl</span></span>
+                <span class="nav-wordmark">pro<span class="accent">vabl</span></span>
             </a>
             <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
                 <span></span><span></span><span></span>
             </button>
-            <div class="nav-links" id="nav-links" role="list">
-                <a href="#suite" role="listitem">Suite</a>
-                <a href="#workflow" role="listitem">Workflow</a>
-                <a href="#principles" role="listitem">Principles</a>
-                <a href="https://github.com/provabl" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="GitHub (opens in new tab)">GitHub</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#suite">Suite</a>
+                <a href="#workflow">How it works</a>
+                <a href="#principles">Principles</a>
+                <a href="https://github.com/provabl" target="_blank" rel="noopener noreferrer" aria-label="GitHub org (opens in new tab)">GitHub</a>
                 <button class="btn-theme" id="theme-toggle" aria-label="Toggle color theme">
                     <span id="theme-icon" aria-hidden="true">🌙</span>
                 </button>
@@ -45,145 +45,133 @@
 
             <!-- Hero -->
             <header class="hero">
-                <div class="hero-badge">Open Source</div>
+                <div class="hero-eyebrow">Open Source · Apache 2.0</div>
                 <h1>
                     <span class="word-ground">Ground</span> your infrastructure.<br>
                     <span class="word-attest">Attest</span> your controls.<br>
                     <span class="word-qualify">Qualify</span> your people.
                 </h1>
-                <p class="hero-tagline">
-                    A suite of open-source tools that makes AWS Secure Research Environments
-                    deployable, assessable, and audit-ready.
+                <p class="hero-sub">
+                    A suite of open-source tools for deploying, enforcing, and proving
+                    compliance in AWS Secure Research Environments.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://github.com/provabl/attest" class="btn btn-primary">Get Started</a>
-                    <a href="#suite" class="btn btn-secondary">Explore the Suite</a>
+                    <a href="https://github.com/provabl/attest" class="btn btn-primary">Get started with attest</a>
+                    <a href="#suite" class="btn btn-secondary">Explore the suite</a>
                 </div>
 
-                <div class="hero-flow" role="region" aria-label="Quick start workflow">
-                    <span class="cmd-comment"># 1. deploy correct foundations</span><br>
-                    <span class="cmd-ground">ground</span> deploy --config ground.yaml<br>
-                    <span class="cmd-out">✓ Organization provisioned</span><br>
+                <div class="hero-snippet" role="region" aria-label="Quick start commands">
+                    <span class="sn-comment"># 1. deploy correct foundations</span><br>
+                    <span class="sn-ground">ground</span> deploy --config ground.yaml<br>
+                    <span class="sn-out">✓ Organization provisioned</span>
                     <br>
-                    <span class="cmd-comment"># 2. compile and enforce controls</span><br>
-                    <span class="cmd-attest">attest</span> init &amp;&amp; attest compile &amp;&amp; attest apply<br>
-                    <span class="cmd-out">✓ 47 controls enforced</span><br>
+                    <span class="sn-comment"># 2. compile and enforce controls</span><br>
+                    <span class="sn-attest">attest</span> init &amp;&amp; attest compile &amp;&amp; attest apply<br>
+                    <span class="sn-out">✓ 47 controls enforced</span>
                     <br>
-                    <span class="cmd-comment"># 3. scan and generate evidence</span><br>
-                    <span class="cmd-attest">attest</span> scan &amp;&amp; attest generate ssp<br>
-                    <span class="cmd-out">✓ Compliant — SSP generated</span>
+                    <span class="sn-comment"># 3. scan and generate evidence</span><br>
+                    <span class="sn-attest">attest</span> scan &amp;&amp; attest generate ssp<br>
+                    <span class="sn-out">✓ Compliant — SSP generated from live state</span>
                 </div>
             </header>
 
             <!-- Suite -->
             <section id="suite" class="suite" aria-labelledby="suite-heading">
-                <div class="suite-header">
+                <div class="section-header">
                     <h2 id="suite-heading">The Provabl Suite</h2>
-                    <p>Three tools, one compliance loop.</p>
+                    <p>Three tools, one compliance loop. Each has exactly one job.</p>
                 </div>
 
                 <div class="suite-grid">
-                    <a href="https://github.com/provabl/ground" class="product-card card-blue" aria-label="ground — SRE deployment tool">
-                        <div class="product-header">
-                            <div>
-                                <div class="product-name">ground</div>
-                                <div class="product-role">Infrastructure Layer</div>
-                            </div>
-                        </div>
+                    <a href="https://ground.provabl.dev" class="product-card card-blue" aria-label="ground — SRE deployment">
+                        <div class="product-tag">Infrastructure</div>
+                        <div class="product-name">ground</div>
                         <p class="product-desc">
-                            Deploy a correctly-configured AWS organization foundation that attest can manage.
-                            Makes zero compliance claims — attest does that after <code>attest scan</code>.
+                            Deploy a correctly-configured AWS organization foundation.
+                            Makes zero compliance claims — <code>attest scan</code> does that.
                         </p>
-                        <ul class="product-claims" aria-label="ground capabilities">
+                        <ul class="product-claims" aria-label="What ground deploys">
                             <li>Account structure: management, security, network, workload OUs</li>
-                            <li>Transit Gateway, hub-and-spoke VPCs, VPC endpoints with org conditions</li>
-                            <li>GuardDuty, Security Hub, Macie — all on by default</li>
+                            <li>Transit Gateway, VPCs, VPC endpoints with org conditions</li>
+                            <li>GuardDuty, Security Hub, Macie — on by default</li>
                             <li>Permission boundaries that actually restrict (Deny-scoped)</li>
-                            <li>Tagging SCPs with OR logic — every missing tag triggers deny</li>
+                            <li>Tagging SCPs with per-tag OR logic</li>
                         </ul>
-                        <span class="product-link" aria-hidden="true">View on GitHub →</span>
+                        <span class="product-cta" aria-hidden="true">ground.provabl.dev →</span>
                     </a>
 
-                    <a href="https://github.com/provabl/attest" class="product-card card-green" aria-label="attest — compliance compiler">
-                        <div class="product-header">
-                            <div>
-                                <div class="product-name">attest</div>
-                                <div class="product-role">Compliance Layer</div>
-                            </div>
-                        </div>
+                    <a href="https://attest.provabl.dev" class="product-card card-green" aria-label="attest — compliance compiler">
+                        <div class="product-tag">Compliance</div>
+                        <div class="product-name">attest</div>
                         <p class="product-desc">
-                            Compile compliance frameworks into deployed policy artifacts.
-                            Enforce controls continuously. Generate audit evidence from live AWS state.
+                            Compile frameworks into deployed policy artifacts. Enforce continuously.
+                            Generate audit evidence from live AWS state.
                         </p>
-                        <ul class="product-claims" aria-label="attest capabilities">
-                            <li>Framework support: CMMC L1/L2/L3, HIPAA, FedRAMP, NIH, ITAR, GDPR</li>
+                        <ul class="product-claims" aria-label="What attest does">
+                            <li>CMMC L1/L2/L3, HIPAA, FedRAMP, NIH, ITAR, GDPR</li>
                             <li>Compiles to SCPs, Cedar policies, AWS Config rules</li>
                             <li>Continuous Cedar PDP enforcement via EventBridge</li>
                             <li>Generates SSP, OSCAL, SPRS, DMSP from live state</li>
-                            <li>AI compliance navigator — surfaces obligations before they become violations</li>
+                            <li>AI navigator surfaces obligations before they become violations</li>
                         </ul>
-                        <span class="product-link" aria-hidden="true">View on GitHub →</span>
+                        <span class="product-cta" aria-hidden="true">attest.provabl.dev →</span>
                     </a>
 
-                    <a href="https://github.com/provabl/qualify" class="product-card card-purple" aria-label="qualify — researcher training and access gating">
-                        <div class="product-header">
-                            <div>
-                                <div class="product-name">qualify</div>
-                                <div class="product-role">People Layer</div>
-                            </div>
-                        </div>
+                    <a href="https://qualify.provabl.dev" class="product-card card-purple" aria-label="qualify — researcher training">
+                        <div class="product-tag">People</div>
+                        <div class="product-name">qualify</div>
                         <p class="product-desc">
-                            Train and qualify researchers before granting access.
-                            Training completion writes IAM role tags that attest's Cedar policies evaluate in real time.
+                            Train and qualify researchers before granting access. Completion writes
+                            IAM role tags that Cedar evaluates in real time.
                         </p>
-                        <ul class="product-claims" aria-label="qualify capabilities">
-                            <li>CUI, HIPAA, FERPA, ITAR, data classification training modules</li>
-                            <li>Writes <code>attest:*</code> IAM tags on completion — Cedar-evaluable</li>
-                            <li>Training expiry tracking with automated access revocation</li>
+                        <ul class="product-claims" aria-label="What qualify does">
+                            <li>CUI, HIPAA, FERPA, ITAR, data classification modules</li>
+                            <li>Writes <code>attest:*</code> IAM tags — Cedar-evaluable immediately</li>
+                            <li>Training expiry tracking, automated access revocation</li>
                             <li>NIH NOT-OD-26-017 research security training</li>
                             <li>Lab onboarding wizard with project context capture</li>
                         </ul>
-                        <span class="product-link" aria-hidden="true">View on GitHub →</span>
+                        <span class="product-cta" aria-hidden="true">qualify.provabl.dev →</span>
                     </a>
                 </div>
             </section>
 
             <!-- Workflow -->
             <section id="workflow" class="workflow" aria-labelledby="workflow-heading">
-                <div class="workflow-header">
+                <div class="section-header">
                     <h2 id="workflow-heading">How It Works Together</h2>
                     <p>Each tool has one job. Together they close the compliance loop.</p>
                 </div>
 
-                <div class="workflow-code" role="region" aria-label="Full deployment workflow">
-                    <div class="workflow-titlebar" aria-hidden="true">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                        <span class="titlebar-label">bash</span>
+                <div class="workflow-window" role="region" aria-label="Full deployment workflow">
+                    <div class="window-bar" aria-hidden="true">
+                        <span class="dot dot-r"></span>
+                        <span class="dot dot-y"></span>
+                        <span class="dot dot-g"></span>
+                        <span class="window-label">bash — compliance workflow</span>
                     </div>
                     <div class="workflow-body">
                         <span class="wf-comment"># Step 1 — ground deploys correct foundations</span><br>
-                        <span class="wf-cmd-ground">ground</span> <span class="wf-arg">deploy --config ground.yaml</span><br>
+                        <span class="wf-ground">ground</span> <span class="wf-arg">deploy --config ground.yaml</span><br>
                         <span class="wf-out">✓ Org structure, network, identity, logging, security baseline provisioned</span>
                         <span class="wf-out">✓ Permission boundaries enforced, VPC endpoint policies org-scoped</span>
                         <br>
-                        <span class="wf-comment"># Step 2 — attest discovers and compiles</span><br>
-                        <span class="wf-cmd-attest">attest</span> <span class="wf-arg">init --region us-east-1</span><br>
-                        <span class="wf-cmd-attest">attest</span> <span class="wf-arg">frameworks add cmmc-level-2 hipaa</span><br>
-                        <span class="wf-cmd-attest">attest</span> <span class="wf-arg">compile --scp-strategy merged</span><br>
-                        <span class="wf-cmd-attest">attest</span> <span class="wf-arg">apply --approve</span><br>
+                        <span class="wf-comment"># Step 2 — attest discovers, compiles, and enforces</span><br>
+                        <span class="wf-attest">attest</span> <span class="wf-arg">init --region us-east-1</span><br>
+                        <span class="wf-attest">attest</span> <span class="wf-arg">frameworks add cmmc-level-2 hipaa</span><br>
+                        <span class="wf-attest">attest</span> <span class="wf-arg">compile --scp-strategy merged</span><br>
+                        <span class="wf-attest">attest</span> <span class="wf-arg">apply --approve</span><br>
                         <span class="wf-out">✓ 47 controls compiled → SCPs deployed, Cedar policies active</span>
                         <br>
-                        <span class="wf-comment"># Step 3 — qualify gates access by training</span><br>
-                        <span class="wf-arg"># researcher completes CUI + HIPAA training in qualify</span><br>
+                        <span class="wf-comment"># Step 3 — qualify gates access by training completion</span><br>
+                        <span class="wf-arg"># researcher completes CUI + HIPAA modules in qualify</span><br>
                         <span class="wf-out">✓ IAM role tagged: attest:cui-training=true, attest:hipaa-training=true</span>
                         <span class="wf-out">✓ Cedar PDP re-evaluates — access granted automatically</span>
                         <br>
                         <span class="wf-comment"># Step 4 — attest makes the compliance claim</span><br>
-                        <span class="wf-cmd-attest">attest</span> <span class="wf-arg">scan</span><br>
-                        <span class="wf-cmd-attest">attest</span> <span class="wf-arg">generate ssp --framework cmmc-level-2</span><br>
-                        <span class="wf-out">✓ Compliant (43/47 controls enforced, 4 operational)</span>
+                        <span class="wf-attest">attest</span> <span class="wf-arg">scan</span><br>
+                        <span class="wf-attest">attest</span> <span class="wf-arg">generate ssp --framework cmmc-level-2</span><br>
+                        <span class="wf-out">✓ Compliant (43/47 enforced, 4 operational)</span>
                         <span class="wf-out">✓ SSP generated from live AWS state — not manually assembled</span>
                     </div>
                 </div>
@@ -191,53 +179,52 @@
 
             <!-- Principles -->
             <section id="principles" class="principles" aria-labelledby="principles-heading">
-                <div class="principles-header">
+                <div class="section-header">
                     <h2 id="principles-heading">Design Principles</h2>
-                    <p>Built for SREs and compliance officers who can't afford surprises.</p>
+                    <p>Built for SREs and compliance officers who cannot afford surprises.</p>
                 </div>
-
                 <div class="principles-grid">
-                    <div class="principle-item">
+                    <div class="principle">
                         <h3>Separation of claims</h3>
-                        <p>ground makes zero compliance claims. It deploys correct foundations. attest makes the compliance claim — but only after <code>attest scan</code> on live state.</p>
+                        <p>ground makes zero compliance claims. It deploys correct foundations. attest makes the claim — only after <code>attest scan</code> on live state.</p>
                     </div>
-                    <div class="principle-item">
+                    <div class="principle">
                         <h3>Policies are tested</h3>
-                        <p>Every IAM boundary, SCP, and Cedar policy ships with unit tests. Permission boundaries are verified to deny privilege escalation. VPC endpoint policies are verified to have org conditions.</p>
+                        <p>Every IAM boundary, SCP, and Cedar policy ships with unit tests. Permission boundaries are verified to deny privilege escalation before they deploy.</p>
                     </div>
-                    <div class="principle-item">
+                    <div class="principle">
                         <h3>Live state, not documentation</h3>
-                        <p>Evidence is generated from what's actually deployed — not from what someone wrote in a doc. SSPs, OSCAL, SPRS reflect the real posture at scan time.</p>
+                        <p>Evidence is generated from what is actually deployed. SSPs, OSCAL, and SPRS reflect the real posture at scan time — not what someone wrote in a doc.</p>
                     </div>
-                    <div class="principle-item">
+                    <div class="principle">
                         <h3>Training gates access</h3>
-                        <p>qualify writes IAM tags on training completion. attest's Cedar policies evaluate those tags before granting data access. No training = no access, enforced at the policy level.</p>
+                        <p>qualify writes IAM tags on training completion. Cedar policies evaluate those tags before granting data access. No training means no access — enforced at the policy level.</p>
                     </div>
-                    <div class="principle-item">
+                    <div class="principle">
                         <h3>Open core</h3>
-                        <p>Compilers, policy schemas, CLI tools, and framework definitions are open source. Commercial features (AI navigator, multi-SRE management, GRC integrations) support ongoing development.</p>
+                        <p>Compilers, policy schemas, CLI tools, and framework definitions are open source. Commercial features fund ongoing development.</p>
                     </div>
-                    <div class="principle-item">
+                    <div class="principle">
                         <h3>Proactive, not reactive</h3>
-                        <p>The AI navigator surfaces obligations before they become violations. Training expiry, DUC renewals, CMMC assessment windows — flagged 30–90 days out, not the day they expire.</p>
+                        <p>The AI navigator surfaces obligations before they become violations. Training expiry, DUC renewals, CMMC windows — flagged 30–90 days out.</p>
                     </div>
                 </div>
             </section>
 
-        </div><!-- /.container -->
+        </div>
     </main>
 
     <div class="container">
         <footer role="contentinfo">
             <div class="footer-inner">
                 <div class="footer-brand">
-                    <div class="nav-wordmark">pro<span style="color: var(--accent-green)">vabl</span></div>
-                    <p>Apache 2.0 — built for research computing SREs</p>
+                    <div class="nav-wordmark">pro<span class="accent">vabl</span></div>
+                    <p>Open-source compliance infrastructure for research computing</p>
                 </div>
-                <nav class="footer-links" aria-label="Footer navigation">
-                    <a href="https://github.com/provabl/attest">attest</a>
-                    <a href="https://github.com/provabl/ground">ground</a>
-                    <a href="https://github.com/provabl/qualify">qualify</a>
+                <nav class="footer-links" aria-label="Footer links">
+                    <a href="https://attest.provabl.dev">attest</a>
+                    <a href="https://ground.provabl.dev">ground</a>
+                    <a href="https://qualify.provabl.dev">qualify</a>
                     <a href="https://github.com/provabl">GitHub</a>
                     <a href="https://github.com/provabl/attest/issues">Issues</a>
                 </nav>
