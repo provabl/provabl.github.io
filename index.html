@@ -68,7 +68,7 @@
                     <br>
                     <span class="sn-comment"># 2. compile and enforce controls</span><br>
                     <span class="sn-attest">attest</span> init &amp;&amp; attest compile &amp;&amp; attest apply<br>
-                    <span class="sn-out">✓ 47 controls enforced</span>
+                    <span class="sn-out">✓ 110 controls — 9 enforced, 21 partial, 80 AWS-covered</span>
                     <br>
                     <span class="sn-comment"># 3. scan and generate evidence</span><br>
                     <span class="sn-attest">attest</span> scan &amp;&amp; attest generate ssp<br>
@@ -179,7 +179,7 @@
                         <span class="wf-attest">attest</span> <span class="wf-arg">frameworks add cmmc-level-2 hipaa</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">compile --scp-strategy merged</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">apply --approve</span><br>
-                        <span class="wf-out">✓ 47 controls compiled → SCPs deployed, Cedar policies active</span>
+                        <span class="wf-out">✓ 110 controls compiled → 1 merged SCP, Cedar policies active</span>
                         <br>
                         <span class="wf-comment"># Step 3 — qualify gates access by training completion</span><br>
                         <span class="wf-arg"># user completes CUI + HIPAA modules in qualify</span><br>
@@ -193,7 +193,7 @@
                         <span class="wf-comment"># Step 5 — attest makes the compliance claim</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">scan</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">generate ssp --framework cmmc-level-2</span><br>
-                        <span class="wf-out">✓ Compliant — 43 enforced, 4 operational, 0 gaps / 47 controls</span>
+                        <span class="wf-out">✓ Compliant — 9 enforced, 21 partial, 80 AWS-covered, 0 gaps / 110 controls</span>
                         <span class="wf-out">✓ SSP generated from live AWS state — not manually assembled</span>
                     </div>
                 </div>
