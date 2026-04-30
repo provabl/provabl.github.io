@@ -193,7 +193,7 @@
                         <span class="wf-comment"># Step 5 — attest makes the compliance claim</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">scan</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">generate ssp --framework cmmc-level-2</span><br>
-                        <span class="wf-out">✓ Compliant (43/47 enforced, 4 operational)</span>
+                        <span class="wf-out">✓ Compliant — 43 enforced, 4 operational, 0 gaps / 47 controls</span>
                         <span class="wf-out">✓ SSP generated from live AWS state — not manually assembled</span>
                     </div>
                 </div>
@@ -207,27 +207,27 @@
                 </div>
                 <div class="principles-grid">
                     <div class="principle">
-                        <h3>Separation of claims</h3>
+                        <h3>Separation of Claims</h3>
                         <p>ground makes zero compliance claims. It deploys correct foundations. attest makes the claim — only after <code>attest scan</code> on live state.</p>
                     </div>
                     <div class="principle">
-                        <h3>Policies are tested</h3>
+                        <h3>Policies Are Tested</h3>
                         <p>Every IAM boundary, SCP, and Cedar policy ships with unit tests. Permission boundaries are verified to deny privilege escalation before they deploy.</p>
                     </div>
                     <div class="principle">
-                        <h3>Live state, not documentation</h3>
+                        <h3>Live State, Not Documentation</h3>
                         <p>Evidence is generated from what is actually deployed. SSPs, OSCAL, and SPRS reflect the real posture at scan time — not what someone wrote in a doc.</p>
                     </div>
                     <div class="principle">
-                        <h3>Training gates access</h3>
+                        <h3>Training Gates Access</h3>
                         <p>qualify writes IAM tags on training completion. Cedar policies evaluate those tags before granting data access. No training means no access — enforced at the policy level.</p>
                     </div>
                     <div class="principle">
-                        <h3>Open core</h3>
+                        <h3>Open Core</h3>
                         <p>Compilers, policy schemas, CLI tools, and framework definitions are open source. Commercial features fund ongoing development.</p>
                     </div>
                     <div class="principle">
-                        <h3>Proactive, not reactive</h3>
+                        <h3>Proactive, Not Reactive</h3>
                         <p>The AI navigator surfaces obligations before they become violations. Training expiry, DUC renewals, CMMC windows — flagged 30–90 days out.</p>
                     </div>
                 </div>
