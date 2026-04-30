@@ -251,11 +251,15 @@ body {
 
 .suite-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 1.25rem;
 }
-@media (max-width: 700px) {
-    .suite-grid { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+    .suite-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
 }
 .product-card {
     background: var(--bg-card);
