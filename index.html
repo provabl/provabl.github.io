@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>provabl — Compliance infrastructure for AWS Secure Research Environments</title>
-    <meta name="description" content="Ground your infrastructure, attest your controls, qualify your people. Open-source compliance tools for AWS Secure Research Environments.">
+    <meta name="description" content="Ground your infrastructure, attest your controls, qualify your people, vet your software. Open-source compliance and supply chain tools for AWS Secure Research Environments.">
     <meta property="og:title" content="provabl — SRE compliance infrastructure">
-    <meta property="og:description" content="Ground your infrastructure, attest your controls, qualify your people.">
+    <meta property="og:description" content="Ground your infrastructure, attest your controls, qualify your people, vet your software.">
     <meta property="og:url" content="https://provabl.dev">
     <meta name="theme-color" content="#f8fafc">
     <!-- Anti-FOUC: default light, respect saved preference -->
@@ -49,11 +49,12 @@
                 <h1>
                     <span class="word-ground">Ground</span> your infrastructure.<br>
                     <span class="word-attest">Attest</span> your controls.<br>
-                    <span class="word-qualify">Qualify</span> your people.
+                    <span class="word-qualify">Qualify</span> your people.<br>
+                    <span class="word-vet">Vet</span> your software.
                 </h1>
                 <p class="hero-sub">
-                    A suite of open-source tools for deploying, enforcing, and proving
-                    compliance in AWS Secure Research Environments.
+                    A suite of open-source tools for deploying, enforcing, proving compliance,
+                    and verifying software supply chains in AWS Secure Research Environments.
                 </p>
                 <div class="hero-buttons">
                     <a href="https://github.com/provabl/attest" class="btn btn-primary">Get started with attest</a>
@@ -79,7 +80,7 @@
             <section id="suite" class="suite" aria-labelledby="suite-heading">
                 <div class="section-header">
                     <h2 id="suite-heading">The Provabl Suite</h2>
-                    <p>Three tools, one compliance loop. Each has exactly one job.</p>
+                    <p>Four tools, one compliance loop. Each has exactly one job.</p>
                 </div>
 
                 <div class="suite-grid">
@@ -133,6 +134,23 @@
                         </ul>
                         <span class="product-cta" aria-hidden="true">qualify.provabl.dev →</span>
                     </a>
+
+                    <a href="https://vet.provabl.dev" class="product-card card-amber" aria-label="vet — software supply chain verification">
+                        <div class="product-tag">Software</div>
+                        <div class="product-name">vet</div>
+                        <p class="product-desc">
+                            Verify software artifacts before they access sensitive data. Where qualify
+                            qualifies the person, vet qualifies the software.
+                        </p>
+                        <ul class="product-claims" aria-label="What vet does">
+                            <li>Sign artifacts via Sigstore keyless signing (cosign)</li>
+                            <li>Verify SLSA provenance — minimum level configurable</li>
+                            <li>Generate and attest SBOMs (SPDX/CycloneDX via syft)</li>
+                            <li>Write Cedar workload attributes for attest's Cedar PDP</li>
+                            <li>CI/CD gate: block unverified workloads from CUI data access</li>
+                        </ul>
+                        <span class="product-cta" aria-hidden="true">vet.provabl.dev →</span>
+                    </a>
                 </div>
             </section>
 
@@ -168,7 +186,11 @@
                         <span class="wf-out">✓ IAM role tagged: attest:cui-training=true, attest:hipaa-training=true</span>
                         <span class="wf-out">✓ Cedar PDP re-evaluates — access granted automatically</span>
                         <br>
-                        <span class="wf-comment"># Step 4 — attest makes the compliance claim</span><br>
+                        <span class="wf-comment"># Step 4 — vet verifies workload before data access</span><br>
+                        <span class="wf-vet">vet</span> <span class="wf-arg">verify pipeline:v1.2 --min-slsa-level 2</span><br>
+                        <span class="wf-out">✓ SLSA L2 provenance verified, no critical CVEs, Cedar attributes written</span>
+                        <br>
+                        <span class="wf-comment"># Step 5 — attest makes the compliance claim</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">scan</span><br>
                         <span class="wf-attest">attest</span> <span class="wf-arg">generate ssp --framework cmmc-level-2</span><br>
                         <span class="wf-out">✓ Compliant (43/47 enforced, 4 operational)</span>
@@ -225,6 +247,7 @@
                     <a href="https://attest.provabl.dev">attest</a>
                     <a href="https://ground.provabl.dev">ground</a>
                     <a href="https://qualify.provabl.dev">qualify</a>
+                    <a href="https://vet.provabl.dev">vet</a>
                     <a href="https://github.com/provabl">GitHub</a>
                     <a href="https://github.com/provabl/attest/issues">Issues</a>
                 </nav>

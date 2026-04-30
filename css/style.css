@@ -13,12 +13,15 @@
     --accent-blue: #0369a1;
     --accent-green: #15803d;
     --accent-purple: #6d28d9;
+    --accent-amber: #b45309;
     --accent-blue-soft: #e0f2fe;
     --accent-green-soft: #dcfce7;
     --accent-purple-soft: #ede9fe;
+    --accent-amber-soft: #fef3c7;
     --accent-blue-mid: #7dd3fc;
     --accent-green-mid: #86efac;
     --accent-purple-mid: #c4b5fd;
+    --accent-amber-mid: #fcd34d;
     --border: #e2e8f0;
     --border-strong: #cbd5e1;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
@@ -39,12 +42,15 @@
     --accent-blue: #38bdf8;
     --accent-green: #4ade80;
     --accent-purple: #a78bfa;
+    --accent-amber: #fbbf24;
     --accent-blue-soft: rgba(56, 189, 248, 0.1);
     --accent-green-soft: rgba(74, 222, 128, 0.1);
     --accent-purple-soft: rgba(167, 139, 250, 0.1);
+    --accent-amber-soft: rgba(251, 191, 36, 0.1);
     --accent-blue-mid: #0369a1;
     --accent-green-mid: #15803d;
     --accent-purple-mid: #6d28d9;
+    --accent-amber-mid: #b45309;
     --border: rgba(255, 255, 255, 0.08);
     --border-strong: rgba(255, 255, 255, 0.14);
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
@@ -168,6 +174,7 @@ body {
 .word-ground { color: var(--accent-blue); }
 .word-attest { color: var(--accent-green); }
 .word-qualify { color: var(--accent-purple); }
+.word-vet     { color: var(--accent-amber); }
 
 .hero-sub {
     font-size: 1.1rem;
@@ -266,6 +273,7 @@ body {
 .card-blue:hover  { border-color: var(--accent-blue); }
 .card-green:hover { border-color: var(--accent-green); }
 .card-purple:hover{ border-color: var(--accent-purple); }
+.card-amber:hover { border-color: var(--accent-amber); }
 
 .product-tag {
     display: inline-block;
@@ -278,10 +286,12 @@ body {
 .card-blue   .product-tag { background: var(--accent-blue-soft);   color: var(--accent-blue); }
 .card-green  .product-tag { background: var(--accent-green-soft);  color: var(--accent-green); }
 .card-purple .product-tag { background: var(--accent-purple-soft); color: var(--accent-purple); }
+.card-amber  .product-tag { background: var(--accent-amber-soft);  color: var(--accent-amber); }
 
 [data-theme="dark"] .card-blue   .product-tag { background: rgba(56, 189, 248, 0.12);  border: 1px solid rgba(56, 189, 248, 0.2); }
 [data-theme="dark"] .card-green  .product-tag { background: rgba(74, 222, 128, 0.12);  border: 1px solid rgba(74, 222, 128, 0.2); }
 [data-theme="dark"] .card-purple .product-tag { background: rgba(167, 139, 250, 0.12); border: 1px solid rgba(167, 139, 250, 0.2); }
+[data-theme="dark"] .card-amber  .product-tag { background: rgba(251, 191, 36, 0.1);   border: 1px solid rgba(251, 191, 36, 0.2); }
 
 .product-name {
     font-size: 1.25rem; font-weight: 800;
@@ -290,6 +300,7 @@ body {
 .card-blue   .product-name { color: var(--accent-blue); }
 .card-green  .product-name { color: var(--accent-green); }
 .card-purple .product-name { color: var(--accent-purple); }
+.card-amber  .product-name { color: var(--accent-amber); }
 
 .product-desc {
     color: var(--text-secondary); font-size: 0.9rem;
@@ -323,6 +334,7 @@ body {
 .card-blue   .product-cta { color: var(--accent-blue); }
 .card-green  .product-cta { color: var(--accent-green); }
 .card-purple .product-cta { color: var(--accent-purple); }
+.card-amber  .product-cta { color: var(--accent-amber); }
 
 /* ── Workflow ────────────────────────────────────────── */
 .workflow {
@@ -361,6 +373,7 @@ body {
 .wf-comment { color: var(--text-muted); }
 .wf-ground  { color: var(--accent-blue);  font-weight: 700; }
 .wf-attest  { color: var(--accent-green); font-weight: 700; }
+.wf-vet     { color: var(--accent-amber); font-weight: 700; }
 .wf-arg     { color: var(--text-secondary); }
 .wf-out     {
     display: block; padding-left: 1rem;
